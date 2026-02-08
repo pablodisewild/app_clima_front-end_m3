@@ -1,5 +1,5 @@
 @import 'base/variables';
-
+@import 'base/mixins';
 body {
   font-family: $font-principal;
   background-color: $color-fondo;
@@ -22,6 +22,11 @@ body {
   cursor: pointer;
   transition: transform 0.15s ease;
 
+    &--sunny   { @include soft-ring($ring-sunny); }
+  &--rainy   { @include soft-ring($ring-rainy); }
+  &--cloudy  { @include soft-ring($ring-cloudy); }
+  &--windy   { @include soft-ring($ring-windy); }
+  &--default { @include soft-ring($ring-default, 0.10); }
   &:hover {
     transform: translateY(-2px);
   }
