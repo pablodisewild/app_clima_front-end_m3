@@ -83,7 +83,20 @@ const cities = [
 ];
 const container = document.getElementById("cities-container");
 
+function getStatusModifier(status) {
+  const s = status.toLowerCase();
+
+  if (s.includes("soleado") || s.includes("despejado")) return "sunny";
+  if (s.includes("lluv")) return "rainy";
+  if (s.includes("nublado") || s.includes("niebla")) return "cloudy";
+  if (s.includes("viento") || s.includes("ventoso")) return "windy";
+
+  return "default";
+}
+
 cities.forEach(city => {
+  const modifier = getStatusModifier(city.status);
+  
   container.innerHTML += `
     <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
       <article class="card h-100 city-card" onclick="goToDetail('${city.name}')">
