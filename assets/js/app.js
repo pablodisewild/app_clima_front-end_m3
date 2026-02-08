@@ -87,10 +87,10 @@ cities.forEach(city => {
   container.innerHTML += `
     <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
       <article class="card h-100 city-card" onclick="goToDetail('${city.name}')">
-        <div class="card-body text-center">
-          <h5 class="card-title">${city.name}</h5>
-          <p class="display-6">${city.temp}°C</p>
-          <span class="badge bg-info">${city.status}</span>
+        <div class="card-body text-center city-card__body">
+          <h5 class="card-title city-card__name">${city.name}</h5>
+          <p class="display-6 city-card__temp">${city.temp}°C</p>
+          <span class="badge bg-info city-card__status">${city.status}</span>
         </div>
       </article>
     </div>

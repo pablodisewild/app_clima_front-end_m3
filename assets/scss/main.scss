@@ -17,3 +17,21 @@ body {
     max-width: 220px;
   }
 }
+.city-card {
+  border-radius: 16px;
+  cursor: pointer;
+  transition: transform 0.15s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+
+  &__temp {
+    margin: 8px 0;
+  }
+
+  &__status {
+    display: inline-block;
+    margin-top: 6px;
+  }
+}
