@@ -4,3 +4,16 @@ body {
   font-family: $font-principal;
   background-color: $color-fondo;
 }
+.place-card {
+  border-radius: 16px;
+  overflow: hidden;
+
+  &__icon {
+    line-height: 1;
+  }
+
+  &__btn {
+    width: 100%;
+    max-width: 220px;
+  }
+}
