@@ -1,34 +1,39 @@
 @import 'base/variables';
 @import 'base/mixins';
 body {
-  font-family: $font-principal;
-  background-color: $color-fondo;
+  font-family: $font-base;
+  background-color: $bg-app;
+  color: $text-main;
 }
-.place-card {
-  border-radius: 16px;
-  overflow: hidden;
-
-  &__icon {
-    line-height: 1;
-  }
-
-  &__btn {
-    width: 100%;
-    max-width: 220px;
-  }
+.navbar {
+    background-color: $brand-primary !important;
+}
+h1, h3 {
+  letter-spacing: 0.3px;
+}
+footer {
+  background-color: #fff;
+  font-size: 0.9rem;
 }
 .city-card {
+
+  background: #fff;
   border-radius: 16px;
   cursor: pointer;
-  transition: transform 0.15s ease;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
 
-    &--sunny   { @include soft-ring($ring-sunny); }
+  &--sunny   { @include soft-ring($ring-sunny); }
   &--rainy   { @include soft-ring($ring-rainy); }
   &--cloudy  { @include soft-ring($ring-cloudy); }
   &--windy   { @include soft-ring($ring-windy); }
   &--default { @include soft-ring($ring-default, 0.10); }
+  
   &:hover {
     transform: translateY(-2px);
+  }
+
+  &__name {
+  color: $brand-primary;
   }
 
   &__temp {
@@ -38,5 +43,6 @@ body {
   &__status {
     display: inline-block;
     margin-top: 6px;
+    background-color: $brand-accent !important;
   }
 }
