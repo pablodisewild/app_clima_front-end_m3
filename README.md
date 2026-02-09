@@ -52,7 +52,7 @@ aplicacion_clima_m3/
 ## Estudiante
 
 **Pablo Ignacio Muñoz García**  
-Proyecto académico – Bootcamp Front-End
+Proyecto para Bootcamp - Front-End Sustantiva Spa
 
 ## Notas finales
 
