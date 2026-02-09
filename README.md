@@ -48,8 +48,7 @@ Se implementó una estructura modular con SASS para reutilizar código y mejorar
 
 El CSS final compilado se enlaza en los HTML mediante:
 
-```html
-<link rel="stylesheet" href="assets/css/main.css">
+"assets/css/main.css"
 
 ## Estructura del proyecto
 
