@@ -21,3 +21,4 @@ cities.forEach(city => {
 
   container.appendChild(col);
 });
+

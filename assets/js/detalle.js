@@ -83,28 +83,63 @@ const textoViento = document.getElementById("viento-detalle");
 
 // 3. Lógica para cambiar el contenido
 if (ciudadSeleccionada && pronosticosCiudades[ciudadSeleccionada]) {
-    // Aquí es donde "Cargando..." desaparece y se pone el nombre
-    tituloCiudad.innerText = `Clima en ${ciudadSeleccionada}`;
-    
-    // Rellenamos humedad y viento con datos ficticios
-    textoHumedad.innerText = `💧 Humedad: 45%`;
-    textoViento.innerText = `💨 Viento: 12 km/h`;
 
-    // Limpiamos el contenedor y creamos las tarjetas
-    contenedorSemanal.innerHTML = "";
-    pronosticosCiudades[ciudadSeleccionada].forEach(item => {
-        contenedorSemanal.innerHTML += `
-            <div class="col">
-                <div class="card h-100 shadow-sm border-0 bg-light text-center">
-                    <div class="card-body">
-                        <p class="text-muted fw-bold mb-1">${item.dia}</p>
-                        <div class="fs-2 mb-2">${item.estado}</div>
-                        <p class="h4 mb-0 text-primary">${item.temp}</p>
-                    </div>
-                </div>
-            </div>
-        `;
-    });
+    const detallesCiudades = {
+  "Santiago": { humedad: 45, viento: 12 },
+  "Londres": { humedad: 85, viento: 18 },
+  "Nueva York": { humedad: 60, viento: 22 },
+  "Tokio": { humedad: 70, viento: 14 },
+  "París": { humedad: 55, viento: 24 },
+  "Moscú": { humedad: 85, viento: 16 },
+  "Sidney": { humedad: 50, viento: 16 },
+  "Ciudad de México": { humedad: 40, viento: 12 },
+  "Berlín": { humedad: 78, viento: 15 },
+  "El Cairo": { humedad: 10, viento: 20 }
+};
+  tituloCiudad.innerText = `Clima en ${ciudadSeleccionada}`;
+
+const datos = detallesCiudades[ciudadSeleccionada] || { humedad: 50, viento: 12 };
+const humedad = datos.humedad;
+const viento = datos.viento;
+
+  textoHumedad.innerText = `💧 Humedad: ${humedad}%`;
+  textoViento.innerText = `💨 Viento: ${viento} km/h`;
+
+  // Fondo animado según humedad/viento
+  const hero = document.getElementById("info-ciudad");
+
+  hero.classList.remove(
+    "weather-hero--sunny",
+    "weather-hero--rainy",
+    "weather-hero--windy",
+    "weather-hero--cloudy",
+    "weather-hero--default"
+  );
+
+let modifier = "default";
+if (viento >= 22) modifier = "windy";
+else if (humedad >= 75) modifier = "rainy";
+else modifier = "sunny";
+
+
+  hero.classList.add(`weather-hero--${modifier}`);
+  console.log("Hero classes:", hero.className);
+
+  // Limpiamos el contenedor y creamos las tarjetas
+  contenedorSemanal.innerHTML = "";
+  pronosticosCiudades[ciudadSeleccionada].forEach(item => {
+    contenedorSemanal.innerHTML += `
+      <div class="col">
+        <div class="card h-100 shadow-sm border-0 bg-light text-center">
+          <div class="card-body">
+            <p class="text-muted fw-bold mb-1">${item.dia}</p>
+            <div class="fs-2 mb-2">${item.estado}</div>
+            <p class="h4 mb-0 text-primary">${item.temp}</p>
+          </div>
+        </div>
+      </div>
+    `;
+  });
 } else {
-    tituloCiudad.innerText = "Ciudad no encontrada";
+  tituloCiudad.innerText = "Ciudad no encontrada";
 }
